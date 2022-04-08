@@ -30,14 +30,12 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       count--;
     });
-    print(count);
   }
 
   void increment() {
     setState(() {
       count++;
     });
-    print(count);
   }
 
   bool get isEmpty => count == 0;
@@ -48,10 +46,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/wallpaper.jpg'),
+            image: const AssetImage('assets/images/wallpaper.jpg'),
             fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.3), BlendMode.darken),
           ),
         ),
         child: Column(
@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: isEmpty ? null : decrement,
                   style: TextButton.styleFrom(
                     backgroundColor:
-                        isEmpty ? Colors.white.withOpacity(0.2) : Colors.white,
+                        isEmpty ? Colors.white.withOpacity(0.4) : Colors.white,
                     fixedSize: const Size(100, 100),
                     primary: Colors.black,
                     shape: RoundedRectangleBorder(
@@ -115,6 +115,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
@@ -123,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: isFull ? null : increment,
                   style: TextButton.styleFrom(
                     backgroundColor:
-                        isFull ? Colors.white.withOpacity(0.2) : Colors.white,
+                        isFull ? Colors.white.withOpacity(0.4) : Colors.white,
                     fixedSize: const Size(100, 100),
                     primary: Colors.black,
                     shape: RoundedRectangleBorder(
@@ -135,6 +136,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
