@@ -24,9 +24,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int count = 20;
+  int count = 5;
   bool get isEmpty => count == 0;
-  bool get isFull => count == 20;
+  bool get isFull => count == 5;
   String vaga = 'Vagas';
 
   void decrement() {
@@ -86,10 +86,15 @@ class _HomePageState extends State<HomePage> {
                           : 'Vagas Disponíveis',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 50,
-                color: isEmpty ? Colors.red : Colors.white,
-                fontWeight: FontWeight.w700,
-              ),
+                  fontSize: 50,
+                  color: isEmpty ? Colors.red : Colors.white,
+                  fontWeight: FontWeight.w700,
+                  shadows: [
+                    Shadow(
+                        offset: isEmpty ? Offset.zero : Offset.infinite,
+                        blurRadius: 3.0,
+                        color: Colors.black),
+                  ]),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 70, horizontal: 50),
